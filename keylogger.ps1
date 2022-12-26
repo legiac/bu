@@ -11,7 +11,6 @@ param (
 $hookurl = "$dc"
 
 $Body = @{
-  'username' = $env:username
   'content' = $text
 }
 
